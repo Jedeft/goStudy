@@ -8,7 +8,7 @@ import "fmt"
 //可以直接创建或从底层数组获取生成
 //一般使用make()创建Slice
 //如果多个slice指向相同底层数组，那么一个改变，全部改变
-func main() {
+func test() {
 	//空的slice
 	var sone []int
 	fmt.Println(sone)
@@ -99,4 +99,13 @@ func main() {
 	temph := []int{7, 8, 9}
 	copy(temph[2:3], tempg[4:5])
 	fmt.Println(temph)
+
+	//对slice进行一个迭代操作
+	for i, v := range tempg {
+		//这里的v是tempg里的元素copy，并不是tempg的元素本身，修改v是不会影响到tempg数组元素的结果
+		//如果想要修改tempg里的元素，那么修改tempg[i]
+		v = 999
+		fmt.Println(i, v)
+		fmt.Println(i, tempg[i])
+	}
 }
