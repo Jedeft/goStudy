@@ -55,7 +55,7 @@ type patient struct {
 	Age  int
 }
 
-func main() {
+func test() {
 	a := person{}
 	a.Name = "Jedeft"
 	a.Age = 22
