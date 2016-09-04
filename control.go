@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 //go控制语句学习
-func test() {
+func testc() {
 	//指针，和C语言用法相同。但是不支持指针运算
 	a := 1
 	var p *int = &a
