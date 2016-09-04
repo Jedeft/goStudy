@@ -10,7 +10,7 @@ Map使用make()创建，支持:=这种简写方式
 
 
 */
-func main() {
+func test() {
 	//创建map方式1
 	var ma map[int]string
 	ma = map[int]string{}
