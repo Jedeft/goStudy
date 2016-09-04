@@ -80,6 +80,7 @@ func E() {
 	//这里defer在函数运行结束后，不论是否发生错误都会执行，通过recover()函数，判断是否发生了panic，如果err!=nil，那么说明确实发生了Panic
 	//那么执行对应的操作，并恢复程序的正常执行。
 	//虽然Go没有异常捕捉处理机制，但是此处的panic和recover非常类似，panic如同Java的抛出异常throw Exception，而recover为Java中的catch，捕获Exception异常
+	//此处特别需要注意的是，defer一定要写在panic之前，因为程序发生panic之后，后面的代码段无效，不会被继续执行，那么defer放在panic之前才会被注册，最后函数return时才会被调用
 	defer func() {
 		if err := recover(); err != nil {
 			fmt.Println("Recover in E")
