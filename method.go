@@ -26,6 +26,8 @@ type testb struct {
 
 type TZ int
 
+type question int
+
 //类型方法绑定必须是同一个包下的，否则找不到对应的类型
 func test() {
 	a := testa{}
@@ -43,6 +45,10 @@ func test() {
 	c.Print()
 	//这样写 也是可以的，method expression
 	(*TZ).Print(&c)
+
+	var number question
+	number.Increase(100)
+	fmt.Println(number)
 }
 
 //这里说明，如果是指针的话，那么是传址，如果是变量那么是传值
@@ -59,4 +65,9 @@ func (b testb) Print() {
 
 func (c *TZ) Print() {
 	fmt.Println("Func TZ")
+}
+
+func (q *question) Increase(num int) {
+	//注意这里要进行一个强制的类型转换，因为int此时和question已经是两个类型了
+	*q += question(num)
 }
