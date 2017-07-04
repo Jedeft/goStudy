@@ -37,7 +37,7 @@ func test() {
 	for i := 0; i < 3; i++ {
 		defer fmt.Println(i)
 	}
-
+	//test from chinasoft
 	//这个defer的执行方式类似其他语言中的析构函数，在函数体执行结束后按照调用顺序的相反顺序逐个执行
 	//所以最后输出结果也是------------在defer这两个函数的输出之上
 	//按照顺序此处defer输出的是3,3,3。主要是因为闭包的问题，在上面循环中，fmt.Println()中，i是传值的
